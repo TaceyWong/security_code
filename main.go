@@ -321,7 +321,7 @@ func login() {
 		loginform.Destroy()
 		register()
 	})
-	user.OnChanged(func (*ui.Entry){
+	user.OnChanged(func(*ui.Entry) {
 		pwd.SetText("xxxxxx")
 	})
 	loginBtn.OnClicked(func(*ui.Button) {
@@ -341,7 +341,6 @@ func login() {
 
 	loginform.Show()
 
-
 }
 
 func start() {
@@ -351,5 +350,6 @@ func start() {
 		registerform.Destroy()
 		return true
 	})
-	ui.Main(login)
+	go ui.Main(login)
+	fmt.Println("Start")
 }
